@@ -15,18 +15,18 @@ var fs = require('fs');
 var Promise = require('bluebird');
 var promiseConstructor = require('./promiseConstructor.js');
 var promisification = require('./promisification.js');
-//var promiseWrite = Promise.promisify(fs.writeFile);
-var promiseWrite = (url, item) => {
-  return new Promise((resolve, reject) => {
-    fs.writeFile(url, item, (err) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(item); //???
-      }
-    });
-  });
-};
+var promiseWrite = Promise.promisify(fs.writeFile);
+//var promiseWrite = (url, item) => {
+//  return new Promise((resolve, reject) => {
+//    fs.writeFile(url, item, (err) => {
+//      if (err) {
+//        reject(err);
+//      } else {
+//        resolve(item); //???
+//      }
+//    });
+//  });
+//};
 
 
 
